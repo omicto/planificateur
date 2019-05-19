@@ -1,12 +1,19 @@
 package com.planificateur.eventplanner.models;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "locales")
 public class Local {
+    @Id
+    @GeneratedValue
     private long idLocal;
     private String calle;
     private String colonia;
     private String ciudad;
     private int capacidad;
-    private float costoHora;
+    private float costoPorHora;
     private long idEncargado;
 
     public long getIdLocal() {
@@ -49,12 +56,12 @@ public class Local {
         this.capacidad = capacidad;
     }
 
-    public float getCostoHora() {
-        return costoHora;
+    public float getCostoPorHora() {
+        return costoPorHora;
     }
 
-    public void setCostoHora(float costoHora) {
-        this.costoHora = costoHora;
+    public void setCostoPorHora(float costoPorHora) {
+        this.costoPorHora = costoPorHora;
     }
 
     public long getIdEncargado() {
