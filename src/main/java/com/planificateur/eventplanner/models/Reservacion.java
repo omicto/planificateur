@@ -1,25 +1,32 @@
 package com.planificateur.eventplanner.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "reservaciones")
 public class Reservacion {
-    private long folio;
+    @Id @GeneratedValue
+    private Long folioReservacion;
     private Timestamp fechaReservada;
     private Timestamp horaInicio;
-    private Timestamp horafin;
-    private long idCliente; // fk
-    private long idPaquete; // fk
-    private long idLocal;   // fk
-    private String detalles;
-    private float costo_total;
-    private boolean estaPagado;
+    private Timestamp horaFin;
+    private Long idCliente; // fk
+    private Long idPaquete; // fk
+    private Long idLocal;   // fk
+    private String detallesAdicionales;
+    private Float costoTotal;
+    private char estaPagada;
 
-    public long getFolio() {
-        return folio;
+    public Long getFolioReservacion() {
+        return folioReservacion;
     }
 
-    public void setFolio(long folio) {
-        this.folio = folio;
+    public void setFolioReservacion(Long folioReservacion) {
+        this.folioReservacion = folioReservacion;
     }
 
     public Timestamp getFechaReservada() {
@@ -38,59 +45,59 @@ public class Reservacion {
         this.horaInicio = horaInicio;
     }
 
-    public Timestamp getHorafin() {
-        return horafin;
+    public Timestamp getHoraFin() {
+        return horaFin;
     }
 
-    public void setHorafin(Timestamp horafin) {
-        this.horafin = horafin;
+    public void setHoraFin(Timestamp horaFin) {
+        this.horaFin = horaFin;
     }
 
-    public long getIdCliente() {
+    public Long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(long idCliente) {
+    public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
     }
 
-    public long getIdPaquete() {
+    public Long getIdPaquete() {
         return idPaquete;
     }
 
-    public void setIdPaquete(long idPaquete) {
+    public void setIdPaquete(Long idPaquete) {
         this.idPaquete = idPaquete;
     }
 
-    public long getIdLocal() {
+    public Long getIdLocal() {
         return idLocal;
     }
 
-    public void setIdLocal(long idLocal) {
+    public void setIdLocal(Long idLocal) {
         this.idLocal = idLocal;
     }
 
-    public String getDetalles() {
-        return detalles;
+    public String getDetallesAdicionales() {
+        return detallesAdicionales;
     }
 
-    public void setDetalles(String detalles) {
-        this.detalles = detalles;
+    public void setDetallesAdicionales(String detallesAdicionales) {
+        this.detallesAdicionales = detallesAdicionales;
     }
 
-    public float getCosto_total() {
-        return costo_total;
+    public Float getCostoTotal() {
+        return costoTotal;
     }
 
-    public void setCosto_total(float costo_total) {
-        this.costo_total = costo_total;
+    public void setCostoTotal(Float costoTotal) {
+        this.costoTotal = costoTotal;
     }
 
-    public boolean isEstaPagado() {
-        return estaPagado;
+    public char getEstaPagada() {
+        return estaPagada;
     }
 
-    public void setEstaPagado(boolean estaPagado) {
-        this.estaPagado = estaPagado;
+    public void setEstaPagada(char estaPagada) {
+        this.estaPagada = estaPagada;
     }
 }
