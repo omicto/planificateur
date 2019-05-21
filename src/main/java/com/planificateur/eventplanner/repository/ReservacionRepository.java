@@ -13,5 +13,6 @@ public interface ReservacionRepository extends JpaRepository<Reservacion, Long> 
     List<Reservacion> findByHoraInicioBefore(Timestamp horaInicio);
     List<Reservacion> findByHoraFinAfter(Timestamp horaFin);
     List<Reservacion> findByHoraFinBefore(Timestamp horaFin);
+    Reservacion findByFechaReservadaAndHoraInicio(Timestamp fechaReservada,Timestamp horaInicio);
 
 }
