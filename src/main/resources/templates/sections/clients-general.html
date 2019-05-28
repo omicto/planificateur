@@ -8,8 +8,47 @@
 
     <!-- Content Row -->
     <div class="row">
-        <div class="col-7" id="clients-general"></div>
-    </div>
+        <div class="col-7" id="clients-general">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#client_modal">
+                Add new client
+            </button>
+            <div class="modal fade" id="client_modal" tabindex = "-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add new client</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id ="client_form">
+                                <div class = "form-group">
+                                    <label for = "client_name" class = "col-form-label"> Name</label>
+                                    <input required  name = "clientName" type = "text" class = "form-control" id = "client_name">
+                                    <label for = "client_last_name" class = "col-form-label"> Last Name</label>
+                                    <input required  name = "clientLastName" type = "text" class = "form-control" id = "client_last_name">
+                                    <label for = "client_phone" class = "col-form-label"> Phone</label>
+                                    <input required  name = "clientPhone" type = "text" class = "form-control" id = "client_phone">
+                                    <label for = "client_start_date" class = "col-form-label"> Client since</label>
+                                    <input required name = "clientStartDate" type = "date" class = "form-control" id = "client_start_date">
+                                    <script>
+                                        $(document).ready( function() {
+                                            $('#client_start_date').val(new Date().toDateInputValue());
+                                        });​
+                                    </script>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form = "client_form" type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
 </div>
 <!-- /.container-fluid -->
