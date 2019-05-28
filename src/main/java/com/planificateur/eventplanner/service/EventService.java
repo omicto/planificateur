@@ -20,7 +20,7 @@ public class EventService {
     ReservacionesService reservacionesService;
 
     public List<Event> findAll(){
-        List<Reservacion> reservaciones = reservacionRepository.findAll();
+        List<Reservacion> reservaciones = reservacionRepository.findAll(); // -> SELECT * FROM tablita;
         return Event.eventifyBatch(reservaciones);
     }
 
