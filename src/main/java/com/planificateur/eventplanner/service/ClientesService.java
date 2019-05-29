@@ -2,6 +2,7 @@ package com.planificateur.eventplanner.service;
 
 import com.planificateur.eventplanner.models.Cliente;
 import com.planificateur.eventplanner.repository.ClienteRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,13 @@ public class ClientesService implements IService<Cliente> {
 
     public Cliente save(Cliente c){
         return clienteRepository.save(c);
+    }
+
+    public Cliente update(Cliente nuevo, Long id){
+        Cliente clienteExistente = clienteRepository.getOne(id);
+        BeanUtils.copyProperties(nuevo, clienteExistente);
+
+        return save(clienteExistente);
     }
 
     public void deleteById(Long id){

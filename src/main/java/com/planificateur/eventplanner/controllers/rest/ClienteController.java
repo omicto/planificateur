@@ -3,10 +3,9 @@ package com.planificateur.eventplanner.controllers.rest;
 import com.planificateur.eventplanner.models.Cliente;
 import com.planificateur.eventplanner.service.ClientesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +22,15 @@ public class ClienteController {
     Cliente save(Cliente c){
         return clienteService.save(c);
     }
+
+    @DeleteMapping("/clients/{idCliente}")
+    void deleteById(@RequestParam Long idCliente){
+        clienteService.deleteById(idCliente);
+    }
+
+    @PutMapping("/clients/{idCliente}")
+    Cliente update(Cliente c, @RequestParam Long idCliente){
+        return clienteService.update(c, idCliente);
+    }
+
 }

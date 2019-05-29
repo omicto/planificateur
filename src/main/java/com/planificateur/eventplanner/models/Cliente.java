@@ -1,7 +1,10 @@
 package com.planificateur.eventplanner.models;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.Instant;
 
 @Entity
 @Table(name = "clientes")
@@ -13,7 +16,8 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String numTelefono;
-    private Timestamp clienteDesde;
+    @Column(name = "cliente_desde", columnDefinition = "DATE DEFAULT sysdate", nullable = false)
+    private Timestamp clienteDesde = Timestamp.from(Instant.now());
 
     public long getIdCliente() {
         return idCliente;

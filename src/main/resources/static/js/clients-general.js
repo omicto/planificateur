@@ -39,7 +39,7 @@ $(document).ready(function(){
     $("#client_form").submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: "/api/clients",
+            url: "/api/clients/new",
             type: "POST",
             data: $("#client_form").serialize()
         })
