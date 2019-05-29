@@ -16,17 +16,17 @@ public class ReservacionesService {
     @Autowired
     ReservacionRepository reservacionRepository;
 
-    List<Reservacion> findAll() {
+    public List<Reservacion> findAll() {
         return reservacionRepository.findAll();
     }
 
-    Reservacion save(Reservacion r){
+    public Reservacion save(Reservacion r){
         // Check if there's a free spot in the selected time
 
         return reservacionRepository.saveAndFlush(r);
     }
 
-    List<Reservacion> findByFechaReservadaBetween(String start, String end) {
+    public List<Reservacion> findByFechaReservadaBetween(String start, String end) {
         Timestamp startTimestamp = DateUtils.toTimestamp(start);
         Timestamp endTimestamp = DateUtils.toTimestamp(end);
         return reservacionRepository.findByFechaReservadaBetween(startTimestamp, endTimestamp);

@@ -1,7 +1,32 @@
 package com.planificateur.eventplanner.service;
 
+import com.planificateur.eventplanner.models.Paquete;
+import com.planificateur.eventplanner.repository.PaqueteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class PaquetesService {
+public class PaquetesService implements IService<Paquete> {
+    @Autowired
+    PaqueteRepository paqueteRepository;
+
+     public List<Paquete> findAll(){
+         return paqueteRepository.findAll();
+     }
+
+     public Paquete getOne(Long id){
+         return paqueteRepository.getOne(id);
+     }
+
+     public Paquete save(Paquete p){
+         return paqueteRepository.save(p);
+     }
+
+     public void deleteById(Long id){
+         paqueteRepository.deleteById(id);
+     }
+
+
 }

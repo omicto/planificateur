@@ -6,9 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Timestamp;
 
+// FIXME Los pagos no tienen ID long!!!! son ID compuesta
+
 @Entity @Table(name = "pagos")
 public class Pago {
-    @Id @GeneratedValue
+    @Id
     private long folioReservacion;
     private long numPago;
     private float montoPagado;

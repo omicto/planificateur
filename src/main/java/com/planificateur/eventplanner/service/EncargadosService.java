@@ -9,7 +9,7 @@ import java.util.List;
 // TODO this is a simple wrapper of the EncargadoRepository interface, add more methods later
 
 @Service
-public class EncargadosService {
+public class EncargadosService implements IService<Encargado> {
     @Autowired
     EncargadoRepository encargadoRepository;
 

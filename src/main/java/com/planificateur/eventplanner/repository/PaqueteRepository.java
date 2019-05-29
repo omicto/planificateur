@@ -1,4 +1,7 @@
 package com.planificateur.eventplanner.repository;
 
-public interface PaqueteRepository {
+import com.planificateur.eventplanner.models.Paquete;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaqueteRepository extends JpaRepository<Paquete, Long> {
 }
