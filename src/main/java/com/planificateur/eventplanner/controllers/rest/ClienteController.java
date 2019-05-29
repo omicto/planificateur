@@ -4,6 +4,7 @@ import com.planificateur.eventplanner.models.Cliente;
 import com.planificateur.eventplanner.service.ClientesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +17,10 @@ public class ClienteController {
     @GetMapping("/clients")
     List<Cliente> findAll(){
         return clienteService.findAll();
+    }
+
+    @PostMapping("/clients/new")
+    Cliente save(Cliente c){
+        return clienteService.save(c);
     }
 }

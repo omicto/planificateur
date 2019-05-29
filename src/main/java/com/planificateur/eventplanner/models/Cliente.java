@@ -1,16 +1,14 @@
 package com.planificateur.eventplanner.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "clientes")
 public class Cliente {
-
-    @Id @GeneratedValue
+    @Id
+    @SequenceGenerator(name="idCliente", sequenceName = "PLANIFICATEUR.SECUENCIA_CLIENTES", allocationSize = 1)
+    @GeneratedValue(generator="idCliente",strategy=GenerationType.SEQUENCE)
     private long idCliente;
     private String nombre;
     private String apellido;

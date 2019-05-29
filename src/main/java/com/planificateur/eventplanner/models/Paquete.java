@@ -1,13 +1,12 @@
 package com.planificateur.eventplanner.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity @Table(name = "paquetes")
 public class Paquete {
-    @Id @GeneratedValue
+    @Id
+    @SequenceGenerator(name="idPaquete", sequenceName = "PLANIFICATEUR.SECUENCIA_PAQUETES", allocationSize = 1)
+    @GeneratedValue(generator="idPaquete",strategy=GenerationType.SEQUENCE)
     private long idPaquete;
     private String descripcion;
     private String detalles;

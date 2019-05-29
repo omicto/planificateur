@@ -4,6 +4,7 @@ import com.planificateur.eventplanner.models.Encargado;
 import com.planificateur.eventplanner.service.EncargadosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class EncargadoController {
     @GetMapping("/managers")
     List<Encargado> findAll(){
         return encargadosService.findAll();
+    }
+
+    @PostMapping("/managers/new")
+    Encargado save(Encargado e){
+        return encargadosService.save(e);
     }
 }

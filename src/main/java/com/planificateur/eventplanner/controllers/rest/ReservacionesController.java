@@ -4,6 +4,7 @@ import com.planificateur.eventplanner.models.Reservacion;
 import com.planificateur.eventplanner.service.ReservacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,4 +19,10 @@ public class ReservacionesController {
     List<Reservacion> findAll(){
         return reservacionesService.findAll();
     }
+
+    @PostMapping("reservations/new")
+    Reservacion save(Reservacion r){
+        return reservacionesService.save(r);
+    }
+
 }

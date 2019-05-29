@@ -2,14 +2,13 @@ package com.planificateur.eventplanner.models;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity @Table(name = "encargados")
 public class Encargado {
-    @Id @GeneratedValue
+    @Id
+    @SequenceGenerator(name="idEncargado", sequenceName = "PLANIFICATEUR.SECUENCIA_ENCARGADOS", allocationSize = 1)
+    @GeneratedValue(generator="idEncargado",strategy=GenerationType.SEQUENCE)
     private Long idEncargado;
     private String nombre;
     private String apellido;
