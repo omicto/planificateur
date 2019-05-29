@@ -1,8 +1,14 @@
 package com.planificateur.eventplanner.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
+@Entity @Table(name = "pagos")
 public class Pago {
+    @Id @GeneratedValue
     private long folioReservacion;
     private long numPago;
     private float montoPagado;

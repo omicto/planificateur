@@ -8,7 +8,6 @@ import java.util.List;
  * FullCallendar compatible model
  */
 public class Event {
-
     private Long id; // Matches Reservaciones folioReservacion
     private Timestamp start;
     private Timestamp end;
