@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "clientes")
 public class Cliente {
-
+    @Id
     @SequenceGenerator(name="idCliente", sequenceName = "PLANIFICATEUR.SECUENCIA_CLIENTES", allocationSize = 1)
     @GeneratedValue(generator="idCliente",strategy=GenerationType.SEQUENCE)
     private long idCliente;

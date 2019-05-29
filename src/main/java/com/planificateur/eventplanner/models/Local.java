@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "locales")
 public class Local {
+    @Id
     @SequenceGenerator(name="idLocal", sequenceName = "PLANIFICATEUR.SECUENCIA_LOCALES", allocationSize = 1)
     @GeneratedValue(generator="idLocal",strategy=GenerationType.SEQUENCE)
     private long idLocal;

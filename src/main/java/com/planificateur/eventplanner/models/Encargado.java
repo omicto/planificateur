@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity @Table(name = "encargados")
 public class Encargado {
+    @Id
     @SequenceGenerator(name="idEncargado", sequenceName = "PLANIFICATEUR.SECUENCIA_ENCARGADOS", allocationSize = 1)
     @GeneratedValue(generator="idEncargado",strategy=GenerationType.SEQUENCE)
     private Long idEncargado;

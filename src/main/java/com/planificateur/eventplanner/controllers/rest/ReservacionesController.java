@@ -20,7 +20,7 @@ public class ReservacionesController {
         return reservacionesService.findAll();
     }
 
-    @PostMapping("reservations")
+    @PostMapping("reservations/new")
     Reservacion save(Reservacion r){
         return reservacionesService.save(r);
     }
