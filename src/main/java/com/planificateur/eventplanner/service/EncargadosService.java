@@ -2,6 +2,8 @@ package com.planificateur.eventplanner.service;
 
 import com.planificateur.eventplanner.models.Encargado;
 import com.planificateur.eventplanner.repository.EncargadoRepository;
+import com.planificateur.eventplanner.util.PropertyUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -27,6 +29,12 @@ public class EncargadosService implements IService<Encargado> {
 
     public void deleteById(Long id){
         encargadoRepository.deleteById(id);
+    }
+
+    public Encargado update(Encargado nuevo, Long id){
+        Encargado encargadoExistente = encargadoRepository.getOne(id);
+        PropertyUtils.myCopyProperties(nuevo, encargadoExistente);
+        return save(encargadoExistente);
     }
 
 

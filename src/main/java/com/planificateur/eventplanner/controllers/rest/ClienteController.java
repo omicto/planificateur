@@ -24,12 +24,12 @@ public class ClienteController {
     }
 
     @DeleteMapping("/clients/{idCliente}")
-    void deleteById(@RequestParam Long idCliente){
+    void deleteById(@PathVariable Long idCliente){
         clienteService.deleteById(idCliente);
     }
 
     @PutMapping("/clients/{idCliente}")
-    Cliente update(Cliente c, @RequestParam Long idCliente){
+    Cliente update(Cliente c, @PathVariable Long idCliente){
         return clienteService.update(c, idCliente);
     }
 

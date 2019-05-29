@@ -31,4 +31,12 @@ public class ReservacionesService {
         Timestamp endTimestamp = DateUtils.toTimestamp(end);
         return reservacionRepository.findByFechaReservadaBetween(startTimestamp, endTimestamp);
     }
+
+    public Reservacion getOne(Long folio){
+        return reservacionRepository.getOne(folio);
+    }
+
+    public void deleteById(Long folio){
+        reservacionRepository.deleteById(folio);
+    }
 }

@@ -3,10 +3,7 @@ package com.planificateur.eventplanner.controllers.rest;
 import com.planificateur.eventplanner.models.Encargado;
 import com.planificateur.eventplanner.service.EncargadosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,15 @@ public class EncargadoController {
     @PostMapping("/managers/new")
     Encargado save(Encargado e){
         return encargadosService.save(e);
+    }
+
+    @DeleteMapping("/managers/{idEncargado}")
+    void deleteById(@PathVariable Long idEncargado){
+        encargadosService.deleteById(idEncargado);
+    }
+
+    @PutMapping("/managers/{idEncargado}")
+    Encargado update(@PathVariable Long idEncargado, Encargado nuevo){
+        return encargadosService.update(nuevo, idEncargado);
     }
 }
