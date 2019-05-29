@@ -12,7 +12,7 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#client_modal">
                 Add new client
             </button>
-            <div class="modal fade" id="client_modal" tabindex = "-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal fade" id="client_modal" tabindex = "-1" role ="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -32,11 +32,6 @@
                                     <input required  name = "clientPhone" type = "text" class = "form-control" id = "client_phone">
                                     <label for = "client_start_date" class = "col-form-label"> Client since</label>
                                     <input required name = "clientStartDate" type = "date" class = "form-control" id = "client_start_date">
-                                    <script>
-                                        $(document).ready( function() {
-                                            $('#client_start_date').val(new Date().toDateInputValue());
-                                        });​
-                                    </script>
                                 </div>
                             </form>
                         </div>
@@ -48,7 +43,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <!-- /.container-fluid -->
