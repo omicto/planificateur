@@ -1,13 +1,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid" th:fragment="clients-general">
-
+<script th:src ="@{/js/clients-general.js}"></script>
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Client information</h1>
     </div>
 
     <!-- Content Row -->
-    <div class ="row">
+    <div class ="col-md-12">
         <table id = "clients_table" class="table">
             <thead>
                 <tr>
@@ -19,21 +19,6 @@
                 </tr>
             </thead>
         </table>
-        <script>
-            $(document).ready(function(){
-                var tableBody = $("#clients_table > tbody")
-                var table = $("#clients_table").DataTable();
-                vat html = "";
-                $.ajax({
-                    url: "/api/clients",
-                    type: "GET"
-                }).done(function(clients){
-                    $.each(clients, function(){
-                        table.row.add(clients)
-                    })
-                })
-            })
-        </script>
     </div>
 
     <div class="row">
