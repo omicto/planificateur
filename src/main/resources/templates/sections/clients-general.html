@@ -8,7 +8,7 @@
 
     <!-- Content Row -->
     <div class ="col-md-12">
-        <table id = "clients_table" class="table">
+        <table id = "clients_table" class="table display">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -16,9 +16,29 @@
                     <th>Last Name</th>
                     <th>Phone Number</th>
                     <th>Start Date</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
         </table>
+        <div id = "delete-client-modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">
@@ -39,13 +59,11 @@
                             <form id ="client_form">
                                 <div class = "form-group">
                                     <label for = "client_name" class = "col-form-label"> Name</label>
-                                    <input required  name = "clientName" type = "text" class = "form-control" id = "client_name">
+                                    <input required  name = "nombre" type = "text" class = "form-control" id = "client_name">
                                     <label for = "client_last_name" class = "col-form-label"> Last Name</label>
-                                    <input required  name = "clientLastName" type = "text" class = "form-control" id = "client_last_name">
+                                    <input required  name = "apellido" type = "text" class = "form-control" id = "client_last_name">
                                     <label for = "client_phone" class = "col-form-label"> Phone</label>
-                                    <input required  name = "clientPhone" type = "text" class = "form-control" id = "client_phone">
-                                    <label for = "client_start_date" class = "col-form-label"> Client since</label>
-                                    <input required name = "clientStartDate" type = "date" class = "form-control" id = "client_start_date">
+                                    <input required  name = "numTelefono" type = "text" class = "form-control" id = "client_phone">
                                 </div>
                             </form>
                         </div>
