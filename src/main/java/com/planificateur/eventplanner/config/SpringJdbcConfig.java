@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-
+//randomcomment
 @Configuration
 public class SpringJdbcConfig {
     @Bean

@@ -31,7 +31,6 @@ $(document).ready(function(){
         var button = $(event.relatedTarget) ;// Button that triggered the modal
         var name = button.data('clientName'); // Extract info from data-* attributes
         var id = button.data('clientId');
-
         console.debug("name", name);
         var modal = $(this);
         modal.find('.modal-title').text('Delete a client');
