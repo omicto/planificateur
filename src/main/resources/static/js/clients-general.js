@@ -6,9 +6,8 @@ function load(){
         type: "GET"
     }).done(function(clients){
         $.each(clients, function(){
-            string = "<button type = 'button' class = 'btn btn-primary edit-client-btn' " +
-                "data-toggle='modal' data-target='#delete-client-modal' " +
-                "data-clientName='" + this['nombre']+ " " +this['apellido']+"'" +
+            string = "<button type='button' class='btn btn-primary edit-client-btn' " +
+                "onClick = 'deleteClient()' data-clientName='" + this['nombre']+ " " +this['apellido']+"'" +
                 " data-clientId='" + this['idCliente']+"'" +">" +
                 "X" + "</button>";
             table.row.add([
@@ -18,24 +17,12 @@ function load(){
                 this['numTelefono'],
                 this['clienteDesde'],
                 string
-            ]).draw(false);
+            ]).draw(true);
         })
     });
 }
-function deleteClient(dataClientId){
-
-}
 $(document).ready(function(){
     load();
-    $('#delete-client-modal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) ;// Button that triggered the modal
-        var name = button.data('clientName'); // Extract info from data-* attributes
-        var id = button.data('clientId');
-        console.debug("name", name);
-        var modal = $(this);
-        modal.find('.modal-title').text('Delete a client');
-        modal.find('.modal-body p').text('Are you sure you want to delete ' + name + '?');
-    });
     $("#client_form").submit(function(e){
         e.preventDefault();
         $.ajax({
@@ -45,10 +32,24 @@ $(document).ready(function(){
         })
             .done(function(){
                 alert("Data sent!");
+                location.reload();
             })
             .fail(function(){
                 alert("error");
             });
     });
 });
+function deleteClient (){
+    var id = $(this).prop("data-clientId");
+    $.ajax({
+        url: "/api/clients/" + id,
+        type : 'DELETE'
+    })
+        .done(function(){
+            alert($(this).prop('data-clientName') + " ha sido eliminado");
+        })
+        .fail(function (){
+            alert("Error en la eliminación");
+        });
+}
 
