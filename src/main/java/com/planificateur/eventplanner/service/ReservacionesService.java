@@ -22,8 +22,8 @@ public class ReservacionesService {
 
     public Reservacion save(Reservacion r){
         // Check if there's a free spot in the selected time
-
-        return reservacionRepository.saveAndFlush(r);
+//        r.setFolioReservacion(0L);
+        return reservacionRepository.save(r);
     }
 
     public List<Reservacion> findByFechaReservadaBetween(String start, String end) {
