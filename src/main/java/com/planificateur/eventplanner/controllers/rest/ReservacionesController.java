@@ -29,4 +29,9 @@ public class ReservacionesController {
         reservacionesService.deleteById(folio);
     }
 
+    @GetMapping("reservations/pending")
+    List<Reservacion> pendientes(){
+        return reservacionesService.getPendientes();
+    }
+
 }
