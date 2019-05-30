@@ -1,7 +1,9 @@
 package com.planificateur.eventplanner.controllers.rest;
 
 import com.planificateur.eventplanner.models.Pago;
+import com.planificateur.eventplanner.models.PagoView;
 import com.planificateur.eventplanner.service.PagosService;
+import com.planificateur.eventplanner.service.ViewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,8 @@ import java.util.List;
 public class PagoController {
     @Autowired
     PagosService pagosService;
+    @Autowired
+    ViewsService viewsService;
 
     @GetMapping("payments")
     List<Pago> findAll(){
@@ -27,6 +31,12 @@ public class PagoController {
     String newPayment(@PathVariable Long folioReservacion, Float pago) throws IOException {
         pagosService.save(folioReservacion, pago);
         return "Received $" + pago + "as payment for reservation #" + folioReservacion;
+    }
+
+    // With view
+    @GetMapping("payments/byclient/{idClient}")
+    List <PagoView> paymentsByClient(@PathVariable Long idClient){
+        return viewsService.findPaymentsByIdCliente(idClient);
     }
 
 }

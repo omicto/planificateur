@@ -39,4 +39,17 @@ public class ReservacionesService {
     public void deleteById(Long folio){
         reservacionRepository.deleteById(folio);
     }
+
+    public List<Reservacion> getPendientes(){
+        return reservacionRepository.findByStatus(1L); // Hardcoded the status
+    }
+}
+
+enum EstadoReservacion{
+    PENDIENTE(1L),
+    PAGADA(2L),
+    CANCELADA(3L);
+
+    EstadoReservacion(long l) {
+    }
 }
