@@ -1,5 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid" th:fragment="places">
+    <!-- <script th:src ="@{/js/places.js}"></script> -->
+
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -7,46 +9,60 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
-        <div class="col-7" id="places">
-
-            <!-- Tabla -->
-            <table id="example" class="table">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Calle</th>
-                    <th>Colonia</th>
-                    <th>Ciudad</th>
-                    <th>Capacidad</th>
-                    <th>Costo por hora</th>
-                    <th>Encargado</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mi calle</td>
-                    <td>Mi colonia</td>
-                    <td>Mi ciudad</td>
-                    <td>45</td>
-                    <td>$ 1200</td>
-                    <td>Panchito el feo</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <script>
-            $(document).ready(function() {
-                $('#clients_table').DataTable();
-                $.ajax({
-                    url : "/api/managers",
-                    type: "GET"
-                })
-            } );
-        </script>
-
+    <div class ="col-md-12">
+        <table id="places_table" class="table display">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Calle</th>
+                <th>Colonia</th>
+                <th>Ciudad</th>
+                <th>Capacidad</th>
+                <th>Costo por hora</th>
+                <th>Nombre encargado</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 
+    <div class="row">
+        <div class="col-7" id="places">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#place_modal">
+                Add new place
+            </button>
+            <div class="modal fade" id="place_modal" tabindex = "-1" role ="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add new place</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id ="place_form">
+                                <div class = "form-group">
+                                    <label for = "place_street" class = "col-form-label"> Calle</label>
+                                    <input required  name = "calle" type = "text" class = "form-control" id = "place_street">
+                                    <label for = "place_suburb" class = "col-form-label"> Colonia</label>
+                                    <input required  name = "colonia" type = "text" class = "form-control" id = "place_suburb">
+                                    <label for = "place_city" class = "col-form-label"> Ciudad</label>
+                                    <input required  name = "ciudad" type = "text" class = "form-control" id = "place_city">
+                                    <label for = "place_capacity" class = "col-form-label"> Capacidad</label>
+                                    <input required  name = "capacidad" type = "text" class = "form-control" id = "place_capacity">
+                                    <label for = "place_cost" class = "col-form-label"> Costo por hora</label>
+                                    <input required  name = "costoPorHora" type = "text" class = "form-control" id = "place_cost">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form = "place_form" type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- /.container-fluid -->

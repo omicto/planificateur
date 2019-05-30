@@ -1,7 +1,7 @@
-
-
 <!-- Begin Page Content -->
 <div class="container-fluid" th:fragment="managers">
+    <!-- <script th:src ="@{/js/managers.js}"></script> -->
+
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -9,43 +9,55 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
-        <div class="col-7" id="managers">
-
-            <!-- Tabla -->
-            <table id="managers_table" class="table">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Phone</th>
-                    <th>Local</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Pancho</td>
-                    <td>Pandillero</td>
-                    <td>614589715</td>
-                    <td>Delicias</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <script>
-            $(document).ready(function() {
-
-                $.ajax({
-                    url : "/api/managers",
-                    type: "GET"
-                })
-            } );
-        </script>
-
+    <div class ="col-md-12">
+        <table id="managers_table" class="table display">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Local Ciudad</th>
+                <th>Local Colonia</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 
- </div>
-<!-- /.container-fluid -->
-
+    <div class="row">
+        <div class="col-7" id="managers">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#manager_modal">
+                Add new manager
+            </button>
+            <div class="modal fade" id="manager_modal" tabindex = "-1" role ="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add new manager</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id ="manager_form">
+                                <div class = "form-group">
+                                    <label for = "manager_name" class = "col-form-label"> Name</label>
+                                    <input required  name = "nombre" type = "text" class = "form-control" id = "manager_name">
+                                    <label for = "manager_last_name" class = "col-form-label"> Last Name</label>
+                                    <input required  name = "apellido" type = "text" class = "form-control" id = "manager_last_name">
+                                    <label for = "manager_phone" class = "col-form-label"> Phone</label>
+                                    <input required  name = "numTelefono" type = "text" class = "form-control" id = "manager_phone">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form = "manager_form" type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
