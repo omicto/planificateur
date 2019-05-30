@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         timeZone: 'UTC',
         plugins: ['interaction','dayGrid', 'timeGrid'],
-        events: '/eventos',
+        events: '/api/events',
         header: {
             left:   'dayGridMonth,timeGridWeek,timeGridDay',
             center: 'addEventButton, title',
@@ -16,15 +16,27 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('date').valueAsDate= info.start;
             document.getElementById('start_hour').valueAsDate = info.start;
             document.getElementById('end_hour').valueAsDate = info.end;
+
+            window.startDate = info.startStr;
+            window.endDate = info.endStr;
         }
     });
     calendar.render();
     $("#addEvent-form").submit(function(e){
         e.preventDefault();
+        var form = $("#addEvent-form")[0];
+        var data = new FormData(form);
+
+        data.set("fechaReservada",window.startDate.toLocaleString().replace("T", " ").replace("Z", ""));
+        console.debug(window.startDate);
+        data.set("horaInicio",window.startDate.toLocaleString().replace("T", " ").replace("Z", ""));
+        data.set("horaFin",window.endDate.toLocaleString().replace("T", " ").replace("Z", ""));
         $.ajax({
             url: "/api/reservations/new",
             type: "POST",
-            data: $("#client_form").serialize()
+            data: data,
+            processData: false,
+            contentType: false
         }).done(function(){
             alert("Data sent!");
         })

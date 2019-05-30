@@ -13,6 +13,7 @@ public class ReservacionesController {
     @Autowired
     ReservacionesService reservacionesService;
 
+
     @GetMapping("reservations")
     List<Reservacion> findAll(){
         return reservacionesService.findAll();
@@ -33,5 +34,7 @@ public class ReservacionesController {
     List<Reservacion> pendientes(){
         return reservacionesService.getPendientes();
     }
+
+
 
 }

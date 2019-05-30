@@ -40,16 +40,7 @@ public class PininosController {
         return localRepository.findAll();
     }
 
-    @GetMapping("/eventos/all")
-    List<Event> eventos(){
-        return eventService.findAll();
-    }
 
-    @GetMapping("/eventos")
-    List<Event> eventosBetween(@RequestParam String start, @RequestParam String end){
-
-        return eventService.findBetween(start,end);
-    }
 
     @GetMapping("/reservaciones")
     List<Reservacion> reservaciones(){

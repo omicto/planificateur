@@ -24,7 +24,7 @@ public class Event {
         this.start = r.getHoraInicio();
         this.end = r.getHoraFin();
         this.title = "#" + this.id;
-        this.url = "/reservaciones/" + this.id;
+        this.url = "/api/payments/" + this.id;
     }
 
 
