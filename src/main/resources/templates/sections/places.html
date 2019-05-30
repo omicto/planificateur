@@ -8,7 +8,44 @@
 
     <!-- Content Row -->
     <div class="row">
-        <div class="col-7" id="places"></div>
+        <div class="col-7" id="places">
+
+            <!-- Tabla -->
+            <table id="example" class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Calle</th>
+                    <th>Colonia</th>
+                    <th>Ciudad</th>
+                    <th>Capacidad</th>
+                    <th>Costo por hora</th>
+                    <th>Encargado</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mi calle</td>
+                    <td>Mi colonia</td>
+                    <td>Mi ciudad</td>
+                    <td>45</td>
+                    <td>$ 1200</td>
+                    <td>Panchito el feo</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#clients_table').DataTable();
+                $.ajax({
+                    url : "/api/managers",
+                    type: "GET"
+                })
+            } );
+        </script>
+
     </div>
 
 </div>
