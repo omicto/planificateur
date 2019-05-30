@@ -27,10 +27,10 @@ public class PagoController {
         return pagosService.findByFolioReservacion(folioReservacion);
     }
 
-    @PostMapping("payments/{folioReservacion}")
-    String newPayment(@PathVariable Long folioReservacion, Float pago) throws IOException {
-        pagosService.save(folioReservacion, pago);
-        return "Received $" + pago + "as payment for reservation #" + folioReservacion;
+    @PostMapping(value = "payments/{folioReservacion}", params = "payment")
+    String newPayment(@PathVariable Long folioReservacion, @RequestParam Float payment) throws IOException {
+        pagosService.save(folioReservacion, payment);
+        return "Received $" + payment + " as payment for reservation #" + folioReservacion;
     }
 
     // With view
@@ -38,5 +38,11 @@ public class PagoController {
     List <PagoView> paymentsByClient(@PathVariable Long idClient){
         return viewsService.findPaymentsByIdCliente(idClient);
     }
+
+    @GetMapping("payments/detail")
+        List <PagoView> detailPayments(){
+            return viewsService.findAll();
+        }
+
 
 }

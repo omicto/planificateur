@@ -1,0 +1,29 @@
+<!-- Begin Page Content -->
+<div class="container-fluid" th:fragment="new-payment">
+    <script th:src="@{/js/new-payment.js}"></script>
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Register a payment</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-7" id="new-payment">
+            <form id="new-payment-form">
+                <div class="form-group">
+                    <label for="select-reservation">Select a reservation:</label>
+                    <select required class="form-control" id="select-reservation" name="folioReservacion">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="abono">Amount to be paid:</label>
+                    <input id="abono" class="form-control" type="number" required placeholder="100.0" step="0.01" min="0" name="payment">
+                </div>
+                <button id="submit-payment" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

@@ -68,6 +68,11 @@ public class IndexController {
         m.addAttribute("page", "payments");
         return LAYOUT_PAGE;
     }
+    @RequestMapping("/payments-new")
+    String newPayment(Model m){
+        m.addAttribute("page", "new-payment");
+        return LAYOUT_PAGE;
+    }
 
 
 }

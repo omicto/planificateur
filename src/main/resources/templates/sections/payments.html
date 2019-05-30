@@ -1,14 +1,36 @@
 <!-- Begin Page Content -->
 <div class="container-fluid" th:fragment="payments">
+    <script th:src="@{/js/payments.js}"></script>
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Payment information</h1>
+        <a href="/payments-new"><button class="btn btn-primary">Register Payment</button></a>
     </div>
 
     <!-- Content Row -->
     <div class="row">
-        <div class="col-7" id="payments"></div>
+        <div class="col-md-5" id="payments">
+            <table id="payments-table" class="table table-striped">
+                <thead>
+                <tr><th colspan="8"><h3>All payments</h3></th></tr>
+                <tr>
+                    <th>CLIENT ID</th>
+                    <th>RESERVATION NO.</th>
+                    <th>PAYMENT NO.</th>
+                    <th>NAME</th>
+                    <th>LAST NAME</th>
+                    <th>AMOUNT PAID</th>
+                    <th>PENDING BALANCE</th>
+                    <th>PAYMENT DATE</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-5" id="pending-payments"></div>
     </div>
 
 </div>
