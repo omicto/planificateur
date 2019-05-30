@@ -9,6 +9,33 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-7" id="general-calendar"></div>
+        <div class="col-5" id="addEvent">
+            <button id ="addevnt_btn" class ="btn btn-primary">Add Event</button>
+            <form id="addEvent-form">
+                <div class = "form-group invisible">
+                    <label for = "client" class = "col-form-label">Client Name</label>
+                    <select required id="client" name="idCliente" class="custom-select custom-select-sm" form="addEvent-form">
+                        <option selected disabled>Seleccione una opcion</option>
+                    </select>
+                    <label for = "place" class = "col-form-label"> Place</label>
+                    <select required id="place" name="idLocal" class="custom-select custom-select-sm" form="addEvent-form">
+                        <option selected disabled>Seleccione una opcion</option>
+                    </select>
+                    <label for = "packages" class = "col-form-label"> Package</label>
+                    <select id="packages" name="idPaquete" class="custom-select custom-select-sm" form="addEvent-form">
+                        <option selected disabled>Seleccione una opcion</option>
+                    </select>
+                    <label for = "date" class = "col-form-label"> Date</label>
+                    <input required  name = "fechaReservada" type = "date" class = "form-control" id = "date">
+                    <label for = "start_hour" class = "col-form-label"> Start Hour</label>
+                    <input required  name = "horaIncio" type = "time" class = "form-control" id = "start_hour">
+                    <label for = "end_hour" class = "col-form-label"> End Hour</label>
+                    <input required  name = "horaFin" type = "time" class = "form-control" id = "end_hour">
+                    <label for = "additional_detail" class = "col-form-label"> Additional Detail</label>
+                    <input required  name = "detallesAdicionales" type = "text" class = "form-control" id = "additional_detail">
+                </div>
+            </form>
+        </div>
     </div>
 
 </div>
