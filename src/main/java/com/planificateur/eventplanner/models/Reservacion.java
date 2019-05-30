@@ -18,7 +18,7 @@ public class Reservacion {
     private Long idLocal;   // fk
     private String detallesAdicionales;
     private Float costoTotal;
-    private char estaPagada;
+    private Long status;
 
     public Long getFolioReservacion() {
         return folioReservacion;
@@ -92,11 +92,11 @@ public class Reservacion {
         this.costoTotal = costoTotal;
     }
 
-    public char getEstaPagada() {
-        return estaPagada;
+    public Long getStatus() {
+        return status;
     }
 
-    public void setEstaPagada(char estaPagada) {
-        this.estaPagada = estaPagada;
+    public void setStatus(Long status) {
+        this.status = status;
     }
 }
