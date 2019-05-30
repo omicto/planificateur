@@ -19,9 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     calendar.render();
-    $("#addevnt_btn").click(function(){
-        $(".invisible").removeClass("invisible");
-    });
+    $("#addEvent-form").submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/api/reservations/new",
+            type: "POST",
+            data: $("#client_form").serialize()
+        }).done(function(){
+            alert("Data sent!");
+        })
+    })
 });
 
 function load(){

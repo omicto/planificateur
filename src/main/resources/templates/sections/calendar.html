@@ -9,20 +9,20 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-7" id="general-calendar"></div>
-        <div class="col-5" id="addEvent">
-            <button id ="addevnt_btn" class ="btn btn-primary">Add Event</button>
+        <div class="col-3" id="addEvent">
+            <button id ="addevnt_btn" class ="btn btn-primary" data-toggle="collapse" data-target="#form" aria-expanded="false" aria-controls="collapseExample">Show</button>
             <form id="addEvent-form">
-                <div class = "form-group invisible">
+                <div id = "form" class = "form-group collapse" data-toggle="tooltip" data-placement="right" title="Select a a timeframe dragging your mouse over the grid on the left">
                     <label for = "client" class = "col-form-label">Client Name</label>
                     <select required id="client" name="idCliente" class="custom-select custom-select-sm" form="addEvent-form">
                         <option selected disabled>Seleccione una opcion</option>
                     </select>
                     <label for = "place" class = "col-form-label"> Place</label>
-                    <select required id="place" name="idLocal" class="custom-select custom-select-sm" form="addEvent-form">
+                    <select required id="place" name="idLocal" class="custom-select custom-select-sm costo" form="addEvent-form">
                         <option selected disabled>Seleccione una opcion</option>
                     </select>
                     <label for = "packages" class = "col-form-label"> Package</label>
-                    <select id="packages" name="idPaquete" class="custom-select custom-select-sm" form="addEvent-form">
+                    <select id="packages" name="idPaquete" class="custom-select custom-select-sm costo" form="addEvent-form">
                         <option selected disabled>Seleccione una opcion</option>
                     </select>
                     <label for = "date" class = "col-form-label"> Date</label>
@@ -32,9 +32,14 @@
                     <label for = "end_hour" class = "col-form-label"> End Hour</label>
                     <input required  name = "horaFin" type = "time" class = "form-control" id = "end_hour">
                     <label for = "additional_detail" class = "col-form-label"> Additional Detail</label>
-                    <input required  name = "detallesAdicionales" type = "text" class = "form-control" id = "additional_detail">
+                    <input name = "detallesAdicionales" type = "text" class = "form-control" id = "additional_detail">
                 </div>
             </form>
+        </div>
+        <div class="col-2">
+            <label for = "cost" class = "col-form-label">Cost</label>
+            <input form = "addEvent-form" name = "costoTotal" type = "text" class = "form-control" id = "cost">
+            <button form = "addEvent-form" type ="submit" class ="btn btn-primary">Submit</button>
         </div>
     </div>
 
